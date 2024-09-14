@@ -1,29 +1,35 @@
-// Sandboxels mod to add a "Multiplayer" button without replacing any existing buttons
-
 function addMultiplayerButton() {
-    // Find the parent container where all the buttons are located (where Reset, Replace are)
-    const buttonContainer = document.querySelector('#controls'); // Assumes the buttons are inside a div with id 'controls'
-
-    if (buttonContainer) {
-        // Create a new button element
-        const multiplayerButton = document.createElement('button');
+    const modManager = document.getElementById("modManager");
+    
+    if (modManager) {
+        // Create a new button for Multiplayer
+        const multiplayerButton = document.createElement("button");
+        multiplayerButton.id = "multiplayerButton";
+        multiplayerButton.innerText = "Multiplayer";
+        multiplayerButton.style.position = "absolute";
+        multiplayerButton.style.bottom = "15%";  // Position just above "Open Mod List"
+        multiplayerButton.style.width = "100%";
+        multiplayerButton.style.left = "0";
+        multiplayerButton.style.height = "50px";
+        multiplayerButton.style.backgroundColor = "#3c3c3c";
+        multiplayerButton.style.paddingLeft = "auto";
+        multiplayerButton.style.zIndex = 10;
         
-        // Set the button properties
-        multiplayerButton.innerText = 'Multiplayer'; // Button label
-        multiplayerButton.id = 'multiplayerButton';  // Optional: Button ID
-
-        // Add event listener for future multiplayer functionality
-        multiplayerButton.addEventListener('click', () => {
+        // Add an event listener for the button
+        multiplayerButton.onclick = () => {
             console.log("Multiplayer button clicked!");
-            // Placeholder for future functionality
-        });
+            // Placeholder: Add Multiplayer functionality here
+        };
 
-        // Append the new button to the button container
-        buttonContainer.appendChild(multiplayerButton);
+        // Append the button to the mod manager UI
+        modManager.appendChild(multiplayerButton);
     } else {
-        console.error('Button container not found!');
+        console.error("Mod Manager not found!");
     }
 }
 
-// Add the button when the page content is loaded
-window.addEventListener('DOMContentLoaded', addMultiplayerButton);
+// Run the function after the page is loaded
+window.addEventListener('DOMContentLoaded', () => {
+    updateModManager();
+    addMultiplayerButton();  // Call the function to add the Multiplayer button
+});
