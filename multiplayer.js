@@ -1,22 +1,21 @@
-// Sandboxels mod to add a "Multiplayer" button next to Reset and Replace buttons
+// Sandboxels mod to add a "Multiplayer" button without replacing any existing buttons
 
-// Function to create and add the Multiplayer button
 function addMultiplayerButton() {
-    // Find the parent element where the buttons are located (near Reset and Replace buttons)
+    // Find the parent container where all the buttons are located (where Reset, Replace are)
     const buttonContainer = document.querySelector('#controls'); // Assumes the buttons are inside a div with id 'controls'
 
     if (buttonContainer) {
         // Create a new button element
         const multiplayerButton = document.createElement('button');
         
-        // Set button properties
+        // Set the button properties
         multiplayerButton.innerText = 'Multiplayer'; // Button label
         multiplayerButton.id = 'multiplayerButton';  // Optional: Button ID
 
-        // Add event listener (optional functionality for future implementation)
+        // Add event listener for future multiplayer functionality
         multiplayerButton.addEventListener('click', () => {
-            console.log("Multiplayer button clicked! (This can trigger multiplayer functionality)");
-            // Placeholder for future multiplayer functionality
+            console.log("Multiplayer button clicked!");
+            // Placeholder for future functionality
         });
 
         // Append the new button to the button container
